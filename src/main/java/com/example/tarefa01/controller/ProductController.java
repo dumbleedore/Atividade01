@@ -1,5 +1,7 @@
 package com.example.tarefa01.controller;
 
+import java.util.Collection;
+
 import com.example.tarefa01.model.Product;
 import com.example.tarefa01.services.ProductServices;
 
@@ -23,13 +25,37 @@ public class ProductController
     @GetMapping("/product/{code}")
     public ModelAndView getProd(@PathVariable("code")int code)
     {
-        ModelAndView mv = new ModelAndView("productview");
+        ModelAndView mv = new ModelAndView("prodbyorder");
 
-        Product produto = ps.getProductByOrder(code);
-        mv.addObject("produto", produto);
+        Product prod = ps.GetProdbyOrder(code);
+        mv.addObject("prods", prod);
         return mv;
     }
-        
+    @GetMapping("/productsinstock")
+    public ModelAndView GetAllProds()
+    {
+        ModelAndView pr = new ModelAndView("allprods");
+        Collection<Product> prod = ps.getProd();
+        pr.addObject("prods", prod);
+        return pr;
+    }
+
+    @GetMapping("/productsabove20")
+    public ModelAndView GetProdsAbove()
+    {
+        ModelAndView pr = new ModelAndView("above20");
+        Collection<Product> prod = ps.GetProductsAbove20();
+        pr.addObject("prods",prod);
+        return pr;
+    }
+    @GetMapping("/productsbellow20")
+    public ModelAndView GetProdsBellow()
+    {
+        ModelAndView pr = new ModelAndView("bellow20");
+        Collection<Product> prod = ps.GetProductsBellow20();
+        pr.addObject("prods",prod);
+        return pr;
+    }
     
 
    

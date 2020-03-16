@@ -32,6 +32,10 @@ public class ProductRepository
     {
         return hm.get(code);
     }
-    
+    public HashMap<Integer,Product> getProducts()
+    {
+        return hm;
+    }
+
    
 }

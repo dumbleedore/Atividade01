@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ProductsBellow20</title>
+</head>
+<body>
+
+    <tr th:each="Product: ${prods}">
+    <td th:text="${Product.code}" />
+    <td th:text="${Product.name}" />
+    <td th:text="${Product.valor}"/>
+    <p></p>
+    
+</body>
+</html>
