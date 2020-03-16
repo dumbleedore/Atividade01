@@ -55,37 +55,37 @@ public class ProductServices
         }
         return Stock.values();
     } 
-    public Collection<Product> GetProductsAbove20()
+    public Collection<Product> GetProductsAbove(double valor)
     {
         HashMap<Integer,Product> aux = new HashMap<Integer,Product>();
-        HashMap<Integer, Product> AboveStock20 = new HashMap<Integer, Product>();
+        HashMap<Integer, Product> AboveStock = new HashMap<Integer,Product>();
 
         aux = pr.getProducts();
 
         for(Product p : aux.values())
         {
-            if(p.getValor() > 20)
+            if(p.getValor() > valor)
             {
-                AboveStock20.put(p.getCode(), p);
+                AboveStock.put(p.getCode(), p);
             }
         }
-        return AboveStock20.values();
+        return AboveStock.values();
     }
-    public Collection<Product> GetProductsBellow20()
+    public Collection<Product> GetProductsBellow(double valor)
     {
         HashMap<Integer,Product> aux = new HashMap<Integer,Product>();
-        HashMap<Integer, Product> AboveBellow20 = new HashMap<Integer, Product>();
+        HashMap<Integer, Product> AboveBellow = new HashMap<Integer, Product>();
 
         aux = pr.getProducts();
 
         for(Product p : aux.values())
         {
-            if(p.getValor() < 20)
+            if(p.getValor() < valor)
             {
-                AboveBellow20.put(p.getCode(), p);
+                AboveBellow.put(p.getCode(), p);
             }
         }
-        return AboveBellow20.values();
+        return AboveBellow.values();
     }
 
     

@@ -6,6 +6,7 @@
     <title>AllProducts</title>
 </head>
 <body>
+    <h1>Todos os Produtos:</h1>
     <tr th:each="Product: ${prods}">
     <td th:text="${Product.code}" />
     <td th:text="${Product.name}" />

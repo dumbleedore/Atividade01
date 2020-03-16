@@ -40,19 +40,19 @@ public class ProductController
         return pr;
     }
 
-    @GetMapping("/productsabove20")
-    public ModelAndView GetProdsAbove()
+    @GetMapping("/productsabove/{valor}")
+    public ModelAndView GetProdsAbove(@PathVariable("valor")double valor)
     {
-        ModelAndView pr = new ModelAndView("above20");
-        Collection<Product> prod = ps.GetProductsAbove20();
+        ModelAndView pr = new ModelAndView("above");
+        Collection<Product> prod = ps.GetProductsAbove(valor);
         pr.addObject("prods",prod);
         return pr;
     }
-    @GetMapping("/productsbellow20")
-    public ModelAndView GetProdsBellow()
+    @GetMapping("/productsbellow/{valor}")
+    public ModelAndView GetProdsBellow(@PathVariable("valor")double valor)
     {
-        ModelAndView pr = new ModelAndView("bellow20");
-        Collection<Product> prod = ps.GetProductsBellow20();
+        ModelAndView pr = new ModelAndView("bellow");
+        Collection<Product> prod = ps.GetProductsBellow(valor);
         pr.addObject("prods",prod);
         return pr;
     }
